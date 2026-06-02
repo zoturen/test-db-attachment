@@ -5,6 +5,8 @@ using TodoApp.Models;
 var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL")
     ?? throw new InvalidOperationException("Set the DATABASE_URL environment variable.");
 
+Console.WriteLine($"DATABASE_URL: {connectionString}");
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<TodoDbContext>(options =>
