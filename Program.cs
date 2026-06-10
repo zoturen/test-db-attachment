@@ -2,9 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using TodoApp.Data;
 using TodoApp.Models;
 
-var connectionString = Environment.GetEnvironmentVariable("DATABASE_URL")
-    ?? throw new InvalidOperationException("Set the DATABASE_URL environment variable.");
-
+var connectionString = $"Host={Environment.GetEnvironmentVariable("PGHOST")};" +
+         $"Port={Environment.GetEnvironmentVariable("PGPORT")};" +
+         $"Database={Environment.GetEnvironmentVariable("PGDATABASE")};" +
+         $"Username={Environment.GetEnvironmentVariable("PGUSER")};" +
+         $"Password={Environment.GetEnvironmentVariable("PGPASSWORD")};SSL Mode=Prefer";
 Console.WriteLine($"DATABASE_URL: {connectionString}");
 
 var builder = WebApplication.CreateBuilder(args);
