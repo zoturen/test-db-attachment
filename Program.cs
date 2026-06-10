@@ -8,6 +8,7 @@ var connectionString = $"Host={Environment.GetEnvironmentVariable("PGHOST")};" +
          $"Username={Environment.GetEnvironmentVariable("PGUSER")};" +
          $"Password={Environment.GetEnvironmentVariable("PGPASSWORD")};SSL Mode=Prefer";
 Console.WriteLine($"DATABASE_URL: {connectionString}");
+Console.WriteLine($"HELLO!");
 
 var builder = WebApplication.CreateBuilder(args);
 
